@@ -1,0 +1,16 @@
+/* stylelint-disable selector-class-pattern */
+.indexedStep {
+  color: white;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  background-color: rgb(211 211 211 / 80%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indexedStep.accomplished {
+  background-color: rgb(0 116 217 / 100%);
+}
