@@ -8,6 +8,11 @@ const Step1 = props => {
 
   return (
     <>
+      <span style={{ color: 'red' }}>
+        {props.errors.includes('email') || props.errors.includes('password')
+          ? 'PLease correct the fields before proceeding'
+          : null}
+      </span>
       <FormGroup>
         <Label for="email">Email</Label>
         <Input
@@ -15,6 +20,7 @@ const Step1 = props => {
           name="email"
           id="email"
           placeholder="Enter your Email"
+          required
           value={props.email} // Prop: The email input data
           onChange={props.handleChange} // Prop: Puts data into the state
         />

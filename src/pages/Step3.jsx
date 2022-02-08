@@ -8,8 +8,11 @@ const Step3 = props => {
 
   return (
     <>
-      <p>We recommend creating a secure password for your account</p>
-
+      <span style={{ color: 'red' }}>
+        {props.errors.includes('acceptTermsAndCondition')
+          ? 'PLease correct the fields before proceeding'
+          : null}
+      </span>
       <FormGroup>
         <Label for="exampleSelect">Select Country code</Label>
         <Input type="select" name="select" id="exampleSelect">
@@ -30,7 +33,13 @@ const Step3 = props => {
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type="checkbox" /> Accept term and conditions
+          <Input
+            type="checkbox"
+            name="acceptTermsAndCondition"
+            value={props.acceptTermsAndCondition} // Prop: The username input data
+            onChange={props.handleChange}
+          />
+          {' Accept T&C '}
         </Label>
       </FormGroup>
     </>

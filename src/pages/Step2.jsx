@@ -8,7 +8,13 @@ const Step2 = props => {
 
   return (
     <>
-      <p>What should we call you?</p>
+      <span style={{ color: 'red' }}>
+        {props.errors.includes('firstName') ||
+        props.errors.includes('lastName') ||
+        props.errors.includes('address')
+          ? 'PLease correct the fields before proceeding'
+          : null}
+      </span>
       <FormGroup>
         <Label for="firstName">FirstName</Label>
         <Input
@@ -26,18 +32,18 @@ const Step2 = props => {
           type="text"
           name="lastName"
           id=""
-          placeholder="Enter your Username"
+          placeholder="Enter your LastName"
           value={props.lastName} // Prop: The username input data
           onChange={props.handleChange} // Prop: Puts data into the state
         />
       </FormGroup>
       <FormGroup>
-        <Label for="username">Address</Label>
+        <Label for="address">Address</Label>
         <Input
           type="text"
           name="address"
           id="address"
-          placeholder="Enter your Username"
+          placeholder="Enter your Address"
           value={props.address} // Prop: The username input data
           onChange={props.handleChange} // Prop: Puts data into the state
         />
